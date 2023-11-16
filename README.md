@@ -1,6 +1,5 @@
 # TELEBASED
  It's a **telegram bot** with various features(currently one).
-
  ## Commands
  **/start** - to start the bot
  **/help** - to see available options
