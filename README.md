@@ -27,7 +27,6 @@
 
     ```
     BOT_TOKEN="YOUR_API_TOKEN"
-
     ```
 
     >Replace `YOUR_API_TOKEN` with the token you got.
