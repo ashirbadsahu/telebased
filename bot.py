@@ -1,8 +1,11 @@
-# -----------------------------------
-# Telebased Telegram Bot
-# Author : @ashirbadsahu
-# Created on : 16/11/2023
-# -----------------------------------
+""" 
+-------------------------------------------------------------------
+ Telebased Telegram Bot
+ Author : @ashirbadsahu
+ Github : https://github.com/ashirbadsahu/telebased
+ Created on : 16/11/2023
+-------------------------------------------------------------------
+ """
 from dotenv import load_dotenv
 import os
 import telebot

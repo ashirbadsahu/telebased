@@ -1,14 +1,14 @@
 # TELEBASED
  It's a **telegram bot** with various features(currently one).
  ## Commands
- **/start** - to start the bot
- **/help** - to see available options
- **/g <keyword>** - to search a keyword
+ **/start** - to start the bot<br>
+ **/help** - to see available options<br>
+ **/g <keyword>** - to search a keyword<br>
  
 
  ## Features
  ### Duckduckgo search
- Uses Duckduckgo's instant answer api.
+ Uses Duckduckgo's instant answer api.<br>
  `/g keyword` to search keywords.
 
 
