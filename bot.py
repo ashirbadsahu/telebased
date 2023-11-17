@@ -1,11 +1,24 @@
 """ 
 -------------------------------------------------------------------
  Telebased Telegram Bot
- Author : @ashirbadsahu
- Github : https://github.com/ashirbadsahu/telebased
- Created on : 16/11/2023
+ Author: @ashirbadsahu
+ Github: https://github.com/ashirbadsahu/telebased
+ Description: A Telegram bot built using the telebot library for basic messaging and DuckDuckGo API for keyword searches.
+ Created on: 16/11/2023
+ Setup Instructions:
+    1. Clone the repository: git clone https://github.com/mygithubid/telebased.git
+    2. Install dependencies: pip install python-dotenv pyTelegramBotAPI
+    3. Set up environment variables, including BOT_TOKEN.
+    4. Run the bot: python bot.py
+ Usage Instructions:
+    - /start: Initiates the bot and displays a welcome message.
+    - /help: Provides information on available commands and their usage.
+    - /g <keyword>: Performs a keyword search using DuckDuckGo API.
+    - Any other message: Echoes the received message back.
+ License: This project is licensed under the MIT License - see the LICENSE.md file for details.
 -------------------------------------------------------------------
 """
+
 # Importing necessary libraries
 from dotenv import load_dotenv
 import os
