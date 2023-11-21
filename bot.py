@@ -25,6 +25,7 @@ import os
 import telebot
 import requests
 import json
+import random
 
 load_dotenv()
 
@@ -68,6 +69,11 @@ def send_gogl(message):
         reply = search_results['RelatedTopics'][0]['Text']
     else:
         reply = "No results found"
+    bot.reply_to(message, reply)
+
+@bot.message_handler(commands=['true'])
+def send_true(message):
+    reply = "real" if random.choice([True, False]) else "false"
     bot.reply_to(message, reply)
 
 # Handler for any other messages (echoing the message back)
