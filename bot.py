@@ -26,36 +26,25 @@ import telebot
 import requests
 import json
 
-# Loading environment variables from a .env file
 load_dotenv()
 
-# Retrieving the Bot Token from environment variables
 BOT_TOKEN = os.getenv('BOT_TOKEN')
 
-# Creating a TeleBot instance using the provided Bot Token
 bot = telebot.TeleBot(BOT_TOKEN)
 
-# Function to perform a DuckDuckGo search
+
 def duckduckgo_search(query):
     # DuckDuckGo API endpoint
     endpoint = 'https://api.duckduckgo.com/'
-    
-    # Parameters for the API request
     params = {
         'q': query,
         'format': 'json'
     }
-    
-    # Making a GET request to the DuckDuckGo API
     response = requests.get(endpoint, params=params)
     
-    # Parsing the JSON response
     search_results = json.loads(response.text)
-    
-    # Returning the search results
     return search_results
 
-# Handler for the /start command
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     # Sending a welcome message in response to the /start command
@@ -64,36 +53,26 @@ def send_welcome(message):
 # Handler for the /help command
 @bot.message_handler(commands=['help'])
 def send_help(message):
-    # Sending help information in response to the /help command
     bot.reply_to(message, "/start - to start the bot\n/help - to see available options\n/g <keyword> - to search a keyword")
 
 # Handler for the /g command (keyword search)
 @bot.message_handler(commands=['g'])
 def send_gogl(message):
-    # Extracting the search query from the message
     if message.reply_to_message and message.reply_to_message.from_user.is_bot:
         query = message.text
     else:
         query = message.text[3:]
     
-    # Performing DuckDuckGo search
     search_results = duckduckgo_search(query)
-    
-    # Checking if there are related topics in the search results
     if search_results['RelatedTopics']:
-        # Extracting the text of the first related topic
         reply = search_results['RelatedTopics'][0]['Text']
     else:
-        # If no results found
         reply = "No results found"
-    
-    # Sending the search results as a reply
     bot.reply_to(message, reply)
 
 # Handler for any other messages (echoing the message back)
 @bot.message_handler(func=lambda msg: True)
 def echo_all(message):
-    # Echoing the received message back
     bot.reply_to(message, message.text)
 
 # Initiating the bot to continuously poll for new messages
